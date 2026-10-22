@@ -66,7 +66,7 @@ No build step, package manager, or dependencies are required — this is a stati
 
 ### Configure the contact form
 
-The contact form (`#contact-form`) submits via `fetch` only when a real Formspree URL is set as its `action` attribute. The repository contains a deliberate placeholder endpoint, so the form validates the fields and shows a configuration error until you replace it.
+The contact form (`#contact-form`) submits asynchronously via `fetch` to the configured Formspree endpoint. It validates required fields, prevents duplicate submissions, shows a loading state, and only clears the form after Formspree confirms a successful response.
 
 1. Create an account or sign in at [formspree.io](https://formspree.io/).
 2. Create a new form and set the destination/notification email to **bharathhubharath@gmail.com** in the Formspree dashboard.
@@ -81,7 +81,7 @@ The contact form (`#contact-form`) submits via `fetch` only when a real Formspre
 5. Remove `data-formspree-placeholder="true"` from that same form tag. This prevents the placeholder from being submitted accidentally.
 
 The JavaScript uses `fetch()` and `FormData`, disables the submit button while sending, clears the form only after a confirmed successful response, and reports network or non-2xx responses as errors. The email recipient is configured in Formspree, not by placing an email address in the endpoint URL.
-3. Without a valid endpoint configured, submitting the form will show a warning toast instead of sending the message.
+3. If you replace the endpoint with an invalid or placeholder URL, submitting the form will show an error toast instead of reporting success.
 
 ## 📦 Deployment
 
