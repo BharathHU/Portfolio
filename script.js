@@ -234,7 +234,8 @@ if (typingText) {
   window.setTimeout(typeRole, 1300);
 }
 
-const revealElements = [...document.querySelectorAll(".reveal:not(#skills .reveal)")];
+const revealElements = [...document.querySelectorAll(".reveal")]
+  .filter((element) => !element.closest("#skills"));
 if ("IntersectionObserver" in window && !prefersReducedMotion) {
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
