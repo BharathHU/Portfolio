@@ -208,7 +208,7 @@ themeToggle?.addEventListener("click", () => {
 
 const typingText = document.querySelector("#typing-text");
 if (typingText) {
-  const roles = ["Python Development", "Backend Development", "Responsive Website Design"];
+  const roles = ["Python Development", "Backend Development", "Responsive Webpage Design"];
   let roleIndex = 0;
   let characterIndex = roles[0].length;
   let deleting = true;
