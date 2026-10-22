@@ -183,7 +183,8 @@ function saveTheme(theme) {
   }
 }
 
-if (getSavedTheme() === "light") document.body.classList.add("light-theme");
+document.body.classList.remove("light-theme");
+saveTheme("dark");
 
 function updateThemeButton() {
   if (!themeToggle) return;
